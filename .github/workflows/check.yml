@@ -1,0 +1,35 @@
+name: Workspace checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - run: pnpm install --frozen-lockfile
+      - run: node -p 'process.platform + "/" + process.arch'
+      - run: pnpm doctor
+      - run: pnpm check
+      # Credential-free evaluation gates (no model call, no Kaggle token):
+      # deterministic refusal/clarification policy and the chart layout validator.
+      - run: pnpm eval:refusal
+      - run: pnpm eval:visual-layout
+      # Versatility gate: 16 messy-tabular cases against the real ingest/query
+      # pipeline (mixed encodings, type drift past the sniff sample, merged
+      # Excel banners, many-currency columns). No credentials, ~7s.
+      - run: pnpm eval:versatility
+      - run: pnpm build

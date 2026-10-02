@@ -1,0 +1,14 @@
+# Local, gitignored workspace directory (not part of this repository's tracked
+# content); excluded so a contributor who has one doesn't get spurious diffs.
+.superpowers/
+**/dist/
+coverage/
+datasets/
+deepseek-harness/
+node_modules/
+packages/dsh-data-workbench/static/**
+pnpm-lock.yaml
+
+# Committed real output: these are byte-for-byte what the product wrote in a live
+# session (see docs/examples/README.md), so they must not be reformatted.
+docs/examples/*.html

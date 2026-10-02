@@ -1,0 +1,111 @@
+{
+  "name": "dsh-data-analyst",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "dsh plugins for versioned Kaggle ingestion, DuckDB analytics and exportable analyst workspaces",
+  "license": "MIT",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "data-analyst",
+    "duckdb",
+    "kaggle",
+    "vega-lite"
+  ],
+  "exports": {
+    ".": "./packages/dsh-data-viz/dist/index.js",
+    "./duckdb": "./packages/dsh-data-duckdb/dist/index.js",
+    "./kaggle": "./packages/dsh-data-kaggle/dist/index.js",
+    "./viz": "./packages/dsh-data-viz/dist/index.js",
+    "./workbench": "./packages/dsh-data-workbench/dist/index.js",
+    "./client": "./packages/dsh-data-viz/client.js"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./profiles/data-analyst/cordis.bundle.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-tool",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-commands"
+      ],
+      "platform": "web"
+    }
+  },
+  "packageManager": "pnpm@11.7.0",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "scripts": {
+    "check:docs": "node packages/dsh-data-core/scripts/doctor.mjs --check",
+    "check:public": "node scripts/public-readiness.mjs",
+    "doctor": "node packages/dsh-data-core/scripts/doctor.mjs",
+    "build": "tsc -b && node scripts/package-analyst-skills.mjs",
+    "typecheck": "tsc -b && tsc -p tsconfig.tests.json --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "tsc -b && vitest run",
+    "test:watch": "vitest --project unit",
+    "test:unit": "vitest run --project unit",
+    "test:integration": "tsc -b && vitest run --project integration",
+    "fixture:analytical-recipes": "npm run build && node packages/dsh-data-duckdb/scripts/run-analytical-recipes.mjs",
+    "ingest": "node packages/dsh-data-core/scripts/ingest-dataset.mjs",
+    "backup:workspace": "node packages/dsh-data-core/scripts/backup-workspace.mjs",
+    "restore:workspace": "node packages/dsh-data-core/scripts/restore-workspace.mjs",
+    "artifacts": "node packages/dsh-data-core/scripts/artifact-workbench.mjs",
+    "eval:dsh-loop": "npm run build && node packages/dsh-data-duckdb/scripts/run-dsh-loop-eval.mjs",
+    "eval:golden": "npm run build && node packages/dsh-data-duckdb/scripts/run-golden-eval.mjs",
+    "eval:heldout": "npm run build && node packages/dsh-data-duckdb/scripts/run-heldout-eval.mjs",
+    "eval:narrative": "npm run build && node packages/dsh-data-duckdb/scripts/run-narrative-eval.mjs",
+    "eval:refusal": "npm run build && node packages/dsh-data-duckdb/scripts/run-refusal-eval.mjs",
+    "eval:versatility": "npm run build && node packages/dsh-data-duckdb/scripts/run-versatility-gate.mjs",
+    "eval:turns": "npm run build && node packages/dsh-data-duckdb/scripts/run-turns-eval.mjs",
+    "eval:visual-layout": "npm run build && node packages/dsh-data-viz/scripts/run-visual-layout-eval.mjs",
+    "bench:deterministic": "npm run build && node packages/dsh-data-duckdb/scripts/bench-deterministic.mjs",
+    "bench:nl": "npm run build && node packages/dsh-data-duckdb/scripts/bench-nl.mjs",
+    "bench:import": "npm run build && node packages/dsh-data-duckdb/scripts/bench-import.mjs",
+    "probe:isolation": "npm run build && node packages/dsh-data-duckdb/scripts/isolation-probe.mjs",
+    "smoke:agent:boot": "npm run build && node scripts/boot-webapp-product-smoke.mjs",
+    "smoke:product:composition": "npm run build && DSH_DATA_PRODUCT_COMPOSITION=webapp node scripts/run-product-composition.mjs",
+    "smoke:product:hold": "npm run build && DSH_DATA_PRODUCT_COMPOSITION=webapp DSH_PRODUCT_HOLD_MS=30000 node scripts/run-product-composition.mjs",
+    "serve:analyst": "npm run build && DSH_DATA_PRODUCT_COMPOSITION=webapp node scripts/serve-analyst-session.mjs",
+    "smoke:analyst:session": "bash deployment/scripts/analyst-session-smoke.sh",
+    "smoke:plugin:local": "npm run build && node scripts/local-plugin-smoke.mjs",
+    "configure:analyst-profile": "node scripts/configure-installed-profile.mjs",
+    "check": "npm run check:docs && npm run check:public && npm run lint && npm run format:check && npm run typecheck && npm test",
+    "dev": "tsc -b --watch",
+    "eval:kaggle-sweep": "npm run build && node packages/dsh-data-duckdb/scripts/live-kaggle-sweep.mjs"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/cordis-plugin-group": "1.0.2",
+    "@deepseek-ai/cordis-plugin-hmr": "1.0.17",
+    "@deepseek-ai/cordis-plugin-include": "1.0.7",
+    "@deepseek-ai/cordis-plugin-loader": "1.0.3",
+    "@deepseek-ai/dsh-app-boot": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-base": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-cmdline": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-home-paths": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-launch-environment": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-llm": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-persona": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-session": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-system-prompt": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-tool-ask-user": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-tools": "0.1.5-rc.2",
+    "@deepseek-ai/dsh-web-app": "0.1.5-rc.2",
+    "@duckdb/node-api": "1.5.5-r.4",
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.13.4",
+    "@types/yazl": "3.3.1",
+    "eslint": "10.10.0",
+    "prettier": "3.9.6",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vitest": "4.1.8",
+    "yazl": "3.3.1"
+  }
+}

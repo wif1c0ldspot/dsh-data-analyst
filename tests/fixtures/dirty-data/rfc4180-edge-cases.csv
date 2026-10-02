@@ -1,0 +1,7 @@
+line_id,customer_id,note,amount
+001,C1,"Smith, John",100.00
+002,C2,"He said ""hello""",50.00
+003,C3,"Multi
+line
+note",75.00
+004,C4,Simple note,60.00

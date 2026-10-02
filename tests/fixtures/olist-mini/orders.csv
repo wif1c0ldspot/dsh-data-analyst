@@ -1,0 +1,6 @@
+order_id,customer_id,order_status,order_purchase_timestamp,order_approved_at,order_delivered_carrier_date,order_delivered_customer_date,order_estimated_delivery_date,review_score
+ord_multi,c_alice,delivered,2018-01-10 10:00:00,2018-01-10 11:00:00,2018-01-11 09:00:00,2018-01-15 14:00:00,2018-01-20 00:00:00,5
+ord_single,c_alice,delivered,2018-02-01 09:00:00,2018-02-01 10:00:00,2018-02-02 08:00:00,2018-02-05 16:00:00,2018-02-10 00:00:00,4
+ord_cancel,c_bob,canceled,2018-03-01 12:00:00,2018-03-01 12:30:00,,,2018-03-15 00:00:00,
+ord_unavail,c_cara,unavailable,2018-03-05 08:00:00,,,,2018-03-20 00:00:00,
+ord_null_deliv,c_bob,shipped,2018-04-01 15:00:00,2018-04-01 16:00:00,2018-04-02 10:00:00,,2018-04-12 00:00:00,3

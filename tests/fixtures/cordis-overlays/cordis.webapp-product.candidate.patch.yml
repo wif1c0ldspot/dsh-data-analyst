@@ -1,0 +1,97 @@
+# Opt-in overlay for the largest viable web-app product composition.
+# Applied AFTER profiles/data-analyst/cordis.patch.yml (and optionally after
+# cordis.nl-session.candidate.patch.yml). Production default path does NOT
+# load this file — live boots stay on the closed profile alone.
+#
+# Captured 2026-09-13 against dsh-web-app@0.1.5-rc.2:
+#   closed + NL candidate still left 8 pending entries waiting on
+#   commands / typert* / attachments plus ALWAYS_DISABLED services
+#   (subprocess, fs via fs-sandbox→sandboxPolicy).
+#
+# This overlay:
+#   1. Re-enables NL_SESSION_CANDIDATE_ROWS (same as nl-session candidate)
+#   2. Re-enables additional host rows needed by web-app (commands, typert*,
+#      attachment-local) that are NOT in ALWAYS_DISABLED_TOOL_ROWS
+#   3. Disables web-app insert rows that require ALWAYS_DISABLED services
+#      (subprocess / sandbox-policy→fs) so the remainder can activate
+#   4. Sets agent-presets default to the closed `analyst` preset
+#
+# ALWAYS_DISABLED_TOOL_ROWS stay disabled (no enable entries for bash/fs/web/
+# subagent/skill/workflow/ralph/subprocess/sandbox*).
+
+# ── NL session candidates (also in cordis.nl-session.candidate.patch.yml) ──
+- id: llm
+  disabled: false
+- id: llm-pi-ai
+  disabled: false
+- id: llm-retry
+  disabled: false
+- id: llm-deepseek
+  disabled: false
+- id: deepseek-llm-api-extensions
+  disabled: false
+- id: agent-default-model
+  disabled: false
+- id: agent
+  disabled: false
+- id: agent-loop
+  disabled: false
+- id: session
+  disabled: false
+- id: session-log-deepseek
+  disabled: false
+- id: session-persistence-jsonl
+  disabled: false
+- id: session-query-sqlite
+  disabled: false
+- id: session-projection
+  disabled: false
+- id: session-projection-cache
+  disabled: false
+- id: token-meter
+  disabled: false
+- id: storage
+  disabled: false
+- id: storage-json
+  disabled: false
+- id: storage-domain
+  disabled: false
+- id: credentials
+  disabled: false
+- id: settings
+  disabled: false
+- id: user-questions
+  disabled: false
+
+# Host skill registry (discovery lives on the analyst preset)
+- id: skill
+  disabled: false
+
+# ── Extra host rows for web-app activation (not ALWAYS_DISABLED) ───────────
+- id: commands
+  disabled: false
+- id: typert
+  disabled: false
+- id: typert-loader
+  disabled: false
+- id: typert-gateway
+  disabled: false
+- id: attachment-local
+  disabled: false
+
+# ── Web-app rows that need ALWAYS_DISABLED services — leave off ────────────
+# open-in-app → subprocess; workspace-files / ui-deliverables → fs+sandboxPolicy
+- id: open-in-app
+  disabled: true
+- id: ui-open-in-app
+  disabled: true
+- id: workspace-files
+  disabled: true
+- id: ui-deliverables
+  disabled: true
+
+# ── Closed analyst preset as the default agent composition ─────────────────
+# Patch replaces the whole config object for this id (web-app only sets default).
+- id: agent-presets
+  config:
+    default: analyst

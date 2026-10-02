@@ -1,0 +1,7 @@
+order_id,customer_id,order_date,status
+ord1,cust1,2024-03-01,placed
+ord2,cust1,2024-03-05,shipped
+ord3,cust2,2024-03-06,placed
+ord4,cust3,2024-03-10,shipped
+ord5,cust3,2024-03-11,placed
+ord6,cust4,2024-03-01,shipped

@@ -1,0 +1,9 @@
+[project]
+name = "dsh-data-analyst-kaggle-cli"
+version = "0.1.0"
+description = "Pinned official Kaggle CLI for the dsh-data-kaggle download adapter (see docs/architecture.md). Not a Python package we ship; only its kaggle console-script is invoked, by fixed argv, from TypeScript."
+requires-python = ">=3.11"
+dependencies = ["kaggle==2.2.4"]
+
+[tool.uv]
+package = false

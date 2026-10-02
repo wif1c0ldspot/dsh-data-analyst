@@ -1,0 +1,41 @@
+{
+  "name": "dsh-data-workbench",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "description": "dsh report/export and authenticated analyst-review plugin",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "static"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --root ../.. --config vitest.config.ts packages/dsh-data-workbench/tests"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "1.5.5-r.4",
+    "dsh-data-core": "workspace:*",
+    "dsh-data-duckdb": "workspace:*",
+    "dsh-data-viz": "workspace:*",
+    "yazl": "3.3.1",
+    "zod": "4.6.2",
+    "better-sqlite3": "13.0.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/dsh-tools": "0.1.5-rc.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4",
+    "@types/yazl": "3.3.1",
+    "@types/better-sqlite3": "9.6.0"
+  }
+}

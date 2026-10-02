@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": false,
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": ["vitest.config.ts", "packages/*/tests/**/*.ts", "tests/**/*.ts"]
+}

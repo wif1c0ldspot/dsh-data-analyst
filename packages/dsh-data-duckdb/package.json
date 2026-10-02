@@ -1,0 +1,92 @@
+{
+  "name": "dsh-data-duckdb",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Managed dsh plugin for controlled ingestion and isolated DuckDB analytics",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@duckdb/node-api": "1.5.5-r.4",
+    "currency-codes": "2.2.0",
+    "dsh-data-core": "workspace:*",
+    "dsh-data-kaggle": "workspace:*",
+    "dsh-data-viz": "workspace:*",
+    "exceljs": "4.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4",
+    "@types/yazl": "3.3.1",
+    "yazl": "3.3.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/dsh-tools": "0.1.5-rc.2"
+  },
+  "private": true,
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./fixed-query": {
+      "types": "./dist/fixed-query.d.ts",
+      "import": "./dist/fixed-query.js"
+    },
+    "./sql-policy": {
+      "types": "./dist/sql-policy.d.ts",
+      "import": "./dist/sql-policy.js"
+    },
+    "./cancellable-query": {
+      "types": "./dist/cancellable-query.d.ts",
+      "import": "./dist/cancellable-query.js"
+    },
+    "./staging-loader": {
+      "types": "./dist/staging-loader.d.ts",
+      "import": "./dist/staging-loader.js"
+    },
+    "./csv-encoding": {
+      "types": "./dist/csv-encoding.d.ts",
+      "import": "./dist/csv-encoding.js"
+    },
+    "./query-service": {
+      "types": "./dist/query-service.d.ts",
+      "import": "./dist/query-service.js"
+    },
+    "./ingest-pipeline": {
+      "types": "./dist/ingest-pipeline.d.ts",
+      "import": "./dist/ingest-pipeline.js"
+    },
+    "./nl-eval": {
+      "types": "./dist/nl-eval.d.ts",
+      "import": "./dist/nl-eval.js"
+    },
+    "./nl-loop": {
+      "types": "./dist/nl-loop.d.ts",
+      "import": "./dist/nl-loop.js"
+    },
+    "./question-intent": {
+      "types": "./dist/question-intent.d.ts",
+      "import": "./dist/question-intent.js"
+    },
+    "./sql-generators": {
+      "types": "./dist/sql-generators.d.ts",
+      "import": "./dist/sql-generators.js"
+    },
+    "./query-worker": {
+      "types": "./dist/query-worker.d.ts",
+      "import": "./dist/query-worker.js"
+    },
+    "./ingest-coordinator": {
+      "types": "./dist/ingest-coordinator.d.ts",
+      "import": "./dist/ingest-coordinator.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

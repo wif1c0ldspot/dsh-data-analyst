@@ -1,0 +1,48 @@
+# Test-only overlay for P3 session-enablement inventory.
+# Applied AFTER profiles/data-analyst/cordis.patch.yml in
+# tests/p3-nl-session-enablement.integration.test.ts only.
+# Normal / production boots do NOT load this file — the live profile stays closed.
+#
+# Re-enables NL_SESSION_CANDIDATE_ROWS (see tests/p3-nl-candidate-rows.unit.test.ts)
+# by setting disabled: false on ids the production patch disabled. ALWAYS_DISABLED_TOOL_ROWS
+# stay disabled (no entries here for bash/fs/web/subagent/skill/workflow/ralph).
+- id: llm
+  disabled: false
+- id: llm-pi-ai
+  disabled: false
+- id: llm-retry
+  disabled: false
+- id: llm-deepseek
+  disabled: false
+- id: deepseek-llm-api-extensions
+  disabled: false
+- id: agent-default-model
+  disabled: false
+- id: agent
+  disabled: false
+- id: agent-loop
+  disabled: false
+- id: session
+  disabled: false
+- id: session-log-deepseek
+  disabled: false
+- id: session-persistence-jsonl
+  disabled: false
+- id: session-query-sqlite
+  disabled: false
+- id: session-projection
+  disabled: false
+- id: session-projection-cache
+  disabled: false
+- id: storage
+  disabled: false
+- id: storage-json
+  disabled: false
+- id: storage-domain
+  disabled: false
+- id: credentials
+  disabled: false
+- id: settings
+  disabled: false
+- id: user-questions
+  disabled: false

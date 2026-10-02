@@ -1,0 +1,54 @@
+{
+  "name": "dsh-data-viz",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Constrained chart compilation plus dsh make_chart toolview",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "bignumber.js": "9.3.1",
+    "dsh-data-core": "workspace:*",
+    "vega": "6.4.0",
+    "vega-lite": "6.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/dsh-tools": "0.1.5-rc.2"
+  },
+  "private": true,
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./chart": {
+      "types": "./dist/chart.d.ts",
+      "import": "./dist/chart.js"
+    },
+    "./chart-service": {
+      "types": "./dist/chart-service.d.ts",
+      "import": "./dist/chart-service.js"
+    },
+    "./png-export": {
+      "types": "./dist/png-export.d.ts",
+      "import": "./dist/png-export.js"
+    },
+    "./visual-layout-eval": {
+      "types": "./dist/visual-layout-eval.d.ts",
+      "import": "./dist/visual-layout-eval.js"
+    }
+  },
+  "files": [
+    "dist",
+    "client.js"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

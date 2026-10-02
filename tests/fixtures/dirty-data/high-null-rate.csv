@@ -1,0 +1,9 @@
+line_id,customer_id,order_date,region,amount,discount_pct
+001,C1,2024-01-01,North,100.00,N/A
+002,C2,2024-01-02,South,50.00,N/A
+003,C3,2024-01-03,North,75.00,unknown
+004,C4,2024-01-04,South,60.00,N/A
+005,C5,2024-01-05,North,90.00,0.10
+006,C6,2024-01-06,South,40.00,N/A
+007,C7,2024-01-07,North,55.00,-
+008,C8,2024-01-08,South,65.00,N/A

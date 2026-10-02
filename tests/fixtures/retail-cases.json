@@ -1,0 +1,39 @@
+{
+  "contractVersion": 1,
+  "split": "development",
+  "datasetVersionId": "synthetic-retail-v1",
+  "semanticRevisionId": "retail-semantics-v1",
+  "loadTypes": {
+    "line_id": "VARCHAR",
+    "customer_id": "VARCHAR",
+    "order_date": "DATE",
+    "region": "VARCHAR",
+    "amount": "DECIMAL(18,2)"
+  },
+  "cases": [
+    {
+      "id": "net-sales",
+      "question": "What is revenue?",
+      "referenceSql": "SELECT SUM(amount) AS revenue FROM retail",
+      "expectedRows": [["130.00"]],
+      "acceptableCharts": ["kpi", "table"]
+    },
+    {
+      "id": "gross-sales",
+      "question": "What are gross sales excluding returns?",
+      "referenceSql": "SELECT SUM(CASE WHEN amount > 0 THEN amount ELSE 0 END) AS gross_sales FROM retail",
+      "expectedRows": [["150.00"]],
+      "acceptableCharts": ["kpi", "table"]
+    },
+    {
+      "id": "regional-sales",
+      "question": "Revenue by region, highest first",
+      "referenceSql": "SELECT region, SUM(amount) AS revenue FROM retail GROUP BY region ORDER BY revenue DESC, region",
+      "expectedRows": [
+        ["North", "80.00"],
+        ["South", "50.00"]
+      ],
+      "acceptableCharts": ["bar", "table"]
+    }
+  ]
+}

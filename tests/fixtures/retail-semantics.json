@@ -1,0 +1,36 @@
+{
+  "contractVersion": 1,
+  "exampleOnly": true,
+  "datasetVersionId": "synthetic-retail-v1",
+  "semanticRevisionId": "retail-semantics-v1",
+  "table": {
+    "id": "retail",
+    "grain": "one transaction line",
+    "key": ["line_id"],
+    "dateColumn": "order_date",
+    "dateMeaning": "calendar date, no timezone conversion",
+    "currency": "USD",
+    "identifiers": ["line_id", "customer_id"]
+  },
+  "metrics": [
+    {
+      "id": "net_sales",
+      "aliases": ["revenue"],
+      "expression": "SUM(amount)",
+      "unit": "USD",
+      "returns": "include negative amounts",
+      "nulls": "reject missing amount during fixture load",
+      "status": "approved",
+      "approvedBy": "synthetic-fixture-author"
+    },
+    {
+      "id": "gross_sales",
+      "aliases": [],
+      "expression": "SUM(CASE WHEN amount > 0 THEN amount ELSE 0 END)",
+      "unit": "USD",
+      "returns": "exclude negative amounts",
+      "status": "approved",
+      "approvedBy": "synthetic-fixture-author"
+    }
+  ]
+}

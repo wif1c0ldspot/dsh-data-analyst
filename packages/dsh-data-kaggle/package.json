@@ -1,0 +1,57 @@
+{
+  "name": "dsh-data-kaggle",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "description": "Managed Kaggle discovery, version resolution and controlled acquisition for dsh",
+  "main": "dist/index.js",
+  "dependencies": {
+    "yauzl": "3.4.0",
+    "dsh-data-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.4",
+    "@types/yauzl": "3.4.0",
+    "@types/yazl": "3.3.1",
+    "yazl": "3.3.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.2",
+    "@deepseek-ai/dsh-tools": "0.1.5-rc.2"
+  },
+  "private": true,
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./download-adapter": {
+      "types": "./dist/download-adapter.d.ts",
+      "import": "./dist/download-adapter.js"
+    },
+    "./archive-safety": {
+      "types": "./dist/archive-safety.d.ts",
+      "import": "./dist/archive-safety.js"
+    },
+    "./download-job": {
+      "types": "./dist/download-job.d.ts",
+      "import": "./dist/download-job.js"
+    },
+    "./metadata-adapter": {
+      "types": "./dist/metadata-adapter.d.ts",
+      "import": "./dist/metadata-adapter.js"
+    },
+    "./publisher-metadata": {
+      "types": "./dist/publisher-metadata.d.ts",
+      "import": "./dist/publisher-metadata.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

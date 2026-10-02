@@ -1,0 +1,9 @@
+{
+  "metadata": { "count": 4, "generated": "2026-01-01" },
+  "records": [
+    { "event_id": 1, "label": "signup", "amount": 10.5 },
+    { "event_id": 2, "label": "purchase", "amount": 42.0 },
+    { "event_id": 3, "label": "refund", "amount": -5.25 },
+    { "event_id": 4, "label": "purchase", "amount": 99.99 }
+  ]
+}

@@ -1,0 +1,7 @@
+line_id,customer_id,order_date,region,amount
+001,C1,2024-01-15,North,100.00
+002,C2,01/15/2024,South,50.00
+003,C3,2024-02-20,North,75.00
+004,C4,15-Jan-2024,South,60.00
+005,C5,2024/03/10,North,40.00
+006,C6,Jan 15 2024,South,90.00

@@ -1,0 +1,21 @@
+packages:
+  - packages/*
+
+# Reuse pnpm's standard peer resolution; the frozen lockfile captures the graph.
+strictPeerDependencies: true
+minimumReleaseAge: 1440
+onlyBuiltDependencies:
+  - esbuild
+  - better-sqlite3
+# Everything else pnpm flags a native build script for comes from the disabled
+# dsh-base capability rows (shell/subagent/sandbox transitive dependencies) we
+# never import: bash-sandbox (node-pty), the code-runtime/genai stack
+# (koffi/@google/genai/protobufjs), dsh-subprocess-local. Leave their native
+# builds unexecuted rather than compiling unused native code.
+allowBuilds:
+  '@deepseek-ai/dsh-subprocess-local': false
+  '@google/genai': false
+  better-sqlite3: true
+  koffi: false
+  node-pty: false
+  protobufjs: false

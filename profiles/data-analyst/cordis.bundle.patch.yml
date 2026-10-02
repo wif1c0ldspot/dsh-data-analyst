@@ -1,0 +1,21 @@
+# Installable dsh bundle layer. Apply this package to a web profile, then use
+# the shipped closed analyst profile/preset configuration documented in
+# docs/analyst-setup.md. Package self-references keep every capability inside
+# the installed dsh plugin rather than reaching into an upstream checkout.
+#
+# Pin harness user-approval to ask so UI answerers (ui-approval) render prompts.
+# Replaces dsh-base's env-gated default that can become never under
+# DSH_PERMISSION_MODE=danger-full-access.
+- id: approval
+  config:
+    policy: ask
+- insert:
+    - id: data-analyst-duckdb
+      name: dsh-data-analyst/duckdb
+    - id: data-analyst-kaggle
+      name: dsh-data-analyst/kaggle
+    - id: data-analyst-viz
+      # The bare package row lets dsh discover this bundle's dsh.client face.
+      name: dsh-data-analyst
+    - id: data-analyst-workbench
+      name: dsh-data-analyst/workbench

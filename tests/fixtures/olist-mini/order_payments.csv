@@ -1,0 +1,6 @@
+order_id,payment_sequential,payment_type,payment_installments,payment_value
+ord_multi,1,credit_card,2,94.80
+ord_single,1,boleto,1,38.40
+ord_cancel,1,credit_card,1,111.00
+ord_unavail,1,voucher,1,47.50
+ord_null_deliv,1,credit_card,3,59.90

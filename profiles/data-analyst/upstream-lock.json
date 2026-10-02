@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/deepseek-ai/deepseek-harness.git",
+  "commit": "c291e7961a515f6d7af9304e7fd1d257929aef26",
+  "packageVersion": "0.1.5-rc.2",
+  "packageManager": "pnpm@11.7.0",
+  "verification": "source-inspected-and-basic-published-plugin-seam-tested",
+  "reviewedAt": "2026-09-13",
+  "cordisVersion": "4.0.2"
+}

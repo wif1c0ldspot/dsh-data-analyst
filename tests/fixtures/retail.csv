@@ -1,0 +1,4 @@
+line_id,customer_id,order_date,region,amount
+001,0007,2024-01-01,North,100.00
+002,0008,2024-01-02,South,50.00
+003,0007,2024-02-01,North,-20.00

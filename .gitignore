@@ -1,0 +1,63 @@
+# deps
+node_modules/
+.pnpm-store/
+
+# secrets
+.env
+.env.*
+!.env.example
+
+# data (large, gitignored)
+datasets/*
+!datasets/README.md
+deepseek-harness/
+data/
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+# Deliberate SQLite-refusal test fixture (preview-ingest tests read it), not
+# generated local state — the rules above would otherwise keep it out of a
+# fresh-history export, silently shipping a repository whose tests differ
+# from the ones CI verified.
+!tests/fixtures/out-of-scope/catalog.sqlite
+
+# build
+dist/
+lib/
+*.tsbuildinfo
+
+# tooling
+.eslintcache
+.turbo/
+coverage/
+*.log
+packages/dsh-data-duckdb/.versatility-report.json
+tools/kaggle-cli/.venv/
+
+# durable local dsh home for `npm run serve:analyst` (sessions/credentials)
+.dsh-home/
+.dsh-home-smoke/
+.dsh-home-loop-eval/
+.dsh-r3-accept/
+
+# mac
+.DS_Store
+
+# Local git worktrees
+.worktrees/
+
+# Ephemeral agent session artifacts
+.superpowers/
+
+# Local scratch
+.tmp/
+
+# Internal-only records: evidence, publishing and development notes.
+# Kept locally for audit; deliberately not part of the published distribution.
+.internal/
+
+# Python bytecode
+__pycache__/
+*.py[cod]

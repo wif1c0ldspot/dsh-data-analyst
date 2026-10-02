@@ -1,0 +1,6 @@
+line_id,customer_id,region,amount
+1,C1,North,100.00
+2,C2,South,50.00
+1,C1,North,100.00
+2,C2,South,50.00
+3,C3,East,75.00

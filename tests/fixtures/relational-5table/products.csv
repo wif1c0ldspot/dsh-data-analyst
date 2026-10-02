@@ -1,0 +1,6 @@
+product_id,category_id,product_name,price
+p1,cat_a,Widget One,9.99
+p2,cat_a,Widget Two,12.50
+p3,cat_b,Gadget One,19.99
+p4,cat_b,Widget One,24.00
+p5,cat_c,Gizmo One,9.99

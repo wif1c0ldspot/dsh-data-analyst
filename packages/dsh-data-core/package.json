@@ -1,0 +1,153 @@
+{
+  "name": "dsh-data-core",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "description": "Design contracts and scaffold diagnostics; runtime services planned in P0/P1",
+  "exports": {
+    "./contracts": {
+      "types": "./dist/contracts.d.ts",
+      "import": "./dist/contracts.js"
+    },
+    "./report-template": {
+      "types": "./dist/report-template.d.ts",
+      "import": "./dist/report-template.js"
+    },
+    "./display-format": {
+      "types": "./dist/display-format.d.ts",
+      "import": "./dist/display-format.js"
+    },
+    "./csv-export": {
+      "types": "./dist/csv-export.d.ts",
+      "import": "./dist/csv-export.js"
+    },
+    "./metadata-store": {
+      "types": "./dist/metadata-store.d.ts",
+      "import": "./dist/metadata-store.js"
+    },
+    "./catalog": {
+      "types": "./dist/catalog.d.ts",
+      "import": "./dist/catalog.js"
+    },
+    "./workspace-paths": {
+      "types": "./dist/workspace-paths.d.ts",
+      "import": "./dist/workspace-paths.js"
+    },
+    "./semantics": {
+      "types": "./dist/semantics.d.ts",
+      "import": "./dist/semantics.js"
+    },
+    "./analysis-store": {
+      "types": "./dist/analysis-store.d.ts",
+      "import": "./dist/analysis-store.js"
+    },
+    "./query-filter": {
+      "types": "./dist/query-filter.d.ts",
+      "import": "./dist/query-filter.js"
+    },
+    "./migrations": {
+      "types": "./dist/migrations.d.ts",
+      "import": "./dist/migrations.js"
+    },
+    "./recipes/types": {
+      "types": "./dist/recipes/types.d.ts",
+      "import": "./dist/recipes/types.js"
+    },
+    "./recipes/superstore": {
+      "types": "./dist/recipes/superstore.d.ts",
+      "import": "./dist/recipes/superstore.js"
+    },
+    "./recipes/online-retail": {
+      "types": "./dist/recipes/online-retail.d.ts",
+      "import": "./dist/recipes/online-retail.js"
+    },
+    "./recipes/olist": {
+      "types": "./dist/recipes/olist.d.ts",
+      "import": "./dist/recipes/olist.js"
+    },
+    "./recipes/retail-fixture": {
+      "types": "./dist/recipes/retail-fixture.d.ts",
+      "import": "./dist/recipes/retail-fixture.js"
+    },
+    "./recipes/olist-mini": {
+      "types": "./dist/recipes/olist-mini.d.ts",
+      "import": "./dist/recipes/olist-mini.js"
+    },
+    "./recipes": {
+      "types": "./dist/recipes/index.d.ts",
+      "import": "./dist/recipes/index.js"
+    },
+    "./recipes/registry": {
+      "types": "./dist/recipes/registry.d.ts",
+      "import": "./dist/recipes/registry.js"
+    },
+    "./recipes/workspace-registry": {
+      "types": "./dist/recipes/workspace-registry.d.ts",
+      "import": "./dist/recipes/workspace-registry.js"
+    },
+    "./catalog-query": {
+      "types": "./dist/catalog-query.d.ts",
+      "import": "./dist/catalog-query.js"
+    },
+    "./stored-result": {
+      "types": "./dist/stored-result.d.ts",
+      "import": "./dist/stored-result.js"
+    },
+    "./grains": {
+      "types": "./dist/grains.d.ts",
+      "import": "./dist/grains.js"
+    },
+    "./metric-rules": {
+      "types": "./dist/metric-rules.d.ts",
+      "import": "./dist/metric-rules.js"
+    },
+    "./dashboard-filters": {
+      "types": "./dist/dashboard-filters.d.ts",
+      "import": "./dist/dashboard-filters.js"
+    },
+    "./tool-observe": {
+      "types": "./dist/tool-observe.d.ts",
+      "import": "./dist/tool-observe.js"
+    },
+    "./join-warnings": {
+      "types": "./dist/join-warnings.d.ts",
+      "import": "./dist/join-warnings.js"
+    },
+    "./currency-warnings": {
+      "types": "./dist/currency-warnings.d.ts",
+      "import": "./dist/currency-warnings.js"
+    },
+    "./result-evidence": {
+      "types": "./dist/result-evidence.d.ts",
+      "import": "./dist/result-evidence.js"
+    },
+    "./computed-finding": {
+      "types": "./dist/computed-finding.d.ts",
+      "import": "./dist/computed-finding.js"
+    },
+    "./interpretation-review": {
+      "types": "./dist/interpretation-review.d.ts",
+      "import": "./dist/interpretation-review.js"
+    },
+    "./result-warnings": {
+      "types": "./dist/result-warnings.d.ts",
+      "import": "./dist/result-warnings.js"
+    }
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.3",
+    "zod": "4.6.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0",
+    "@types/node": "24.13.4"
+  }
+}

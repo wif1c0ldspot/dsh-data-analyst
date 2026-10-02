@@ -1,0 +1,8 @@
+order_id,order_item_id,product_id,seller_id,shipping_limit_date,price,freight_value
+ord_multi,1,prod_a,seller_1,2018-01-14 10:00:00,29.90,8.50
+ord_multi,2,prod_b,seller_1,2018-01-14 10:00:00,49.90,10.00
+ord_multi,3,prod_c,seller_2,2018-01-14 10:00:00,15.00,5.00
+ord_single,4,prod_a,seller_1,2018-02-05 09:00:00,29.90,8.50
+ord_cancel,5,prod_d,seller_2,2018-03-05 12:00:00,99.00,12.00
+ord_unavail,6,prod_e,seller_3,2018-03-10 08:00:00,40.00,7.50
+ord_null_deliv,7,prod_b,seller_1,2018-04-06 15:00:00,49.90,10.00

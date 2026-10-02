@@ -1,0 +1,6 @@
+order_id,elapsed_seconds,amount
+o1,0,10.00
+o2,45,20.00
+o3,90,30.00
+o4,3600,40.00
+o5,,50.00

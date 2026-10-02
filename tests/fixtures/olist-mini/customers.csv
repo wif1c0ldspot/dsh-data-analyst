@@ -1,0 +1,4 @@
+customer_id,customer_unique_id,customer_zip_code_prefix,customer_city,customer_state
+c_alice,u_alice,01310,sao paulo,SP
+c_bob,u_bob,20040,rio de janeiro,RJ
+c_cara,u_cara,30130,belo horizonte,MG

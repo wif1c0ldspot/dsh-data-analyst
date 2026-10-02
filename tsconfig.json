@@ -1,0 +1,20 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/dsh-data-core"
+    },
+    {
+      "path": "./packages/dsh-data-kaggle"
+    },
+    {
+      "path": "./packages/dsh-data-duckdb"
+    },
+    {
+      "path": "./packages/dsh-data-viz"
+    },
+    {
+      "path": "./packages/dsh-data-workbench"
+    }
+  ]
+}

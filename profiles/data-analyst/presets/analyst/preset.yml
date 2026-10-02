@@ -1,0 +1,7 @@
+name: Data analyst (isolated)
+description: >-
+  Isolated analyst session preset — persona and project skills only; model-facing
+  tools come from the host allowlist (ingest, catalog, query, chart, save/export).
+  No shell, filesystem, web, subagent, or generic coding tools in this preset.
+  Use Standard or Creator on the same web profile when you need those tools.
+order: 0
